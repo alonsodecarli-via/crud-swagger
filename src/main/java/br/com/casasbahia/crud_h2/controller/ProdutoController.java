@@ -1,8 +1,8 @@
-package br.com.casasbahia.crud_h2.controller.mapper;
+package br.com.casasbahia.crud_h2.controller;
 
-import br.com.casasbahia.crud_h2.controller.ProdutoMapper;
 import br.com.casasbahia.crud_h2.controller.dto.ProdutoRequest;
 import br.com.casasbahia.crud_h2.controller.dto.ProdutoResponse;
+import br.com.casasbahia.crud_h2.controller.mapper.ProdutoMapper;
 import br.com.casasbahia.crud_h2.model.Produto;
 import br.com.casasbahia.crud_h2.service.ProdutoService;
 import io.swagger.v3.oas.annotations.Operation;
