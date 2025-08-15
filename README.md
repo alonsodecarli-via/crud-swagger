@@ -9,7 +9,7 @@ O objetivo desta aula é mostrar como configurar **Swagger UI** usando **Springd
 
 ## 1️⃣ O que é Swagger e OpenAPI 📖
 
-### 🐍 Swagger
+### 🧭 Swagger
 
 O **Swagger** começou como um **conjunto de ferramentas** para **descrever, gerar e consumir APIs REST**.
 
@@ -63,7 +63,7 @@ O **Springdoc OpenAPI** é uma biblioteca que simplifica a integração do Sprin
 ### 💡 Resumo da relação
 
 * 📜 **OpenAPI** → É o **padrão** (especificação).
-* 🐍 **Swagger** → É o **conjunto de ferramentas** que implementa e facilita trabalhar com o padrão OpenAPI.
+* 🧭 **Swagger** → É o **conjunto de ferramentas** que implementa e facilita trabalhar com o padrão OpenAPI.
 * ⚙️ **Springdoc OpenAPI** → É a **biblioteca** que integra Spring Boot e OpenAPI (e geralmente embute o Swagger UI).
 
 
@@ -91,9 +91,7 @@ O **Springdoc OpenAPI** é uma biblioteca que simplifica a integração do Sprin
     * No dia a dia, muitos devs ainda dizem **“Swagger”** para se referir à documentação, mesmo quando tecnicamente é **OpenAPI**.
 
 
-💡 **Em resumo:** Usamos “Swagger” nesse guia porque ele é o nome mais reconhecido pelos desenvolvedores, especialmente iniciantes, para **“aquela tela bonita”** onde testamos os endpoints. 
-
-
+💡 Ao adicionar essa dependência ao projeto, o **Springdoc OpenAPI** automaticamente configura e disponibiliza a documentação da sua API. Com isso, tanto o **gerador de especificação OpenAPI** quanto a interface interativa do **Swagger UI** estarão prontos para uso, sem necessidade de configurações adicionais.
 
 
 ## 2️⃣ ⚙️ Configurando o Springdoc OpenAPI no projeto
@@ -435,7 +433,7 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
 
 ## 🚀 Resultado final
 
-Após seguir este guia, você terá:
+Ao seguir passos estudados nesta aula, você terá:
 
 * 📑 API documentada automaticamente
 * 🖥️ Interface web para testes
