@@ -467,9 +467,13 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
         * **@ApiResponse**: Usada para descrever as respostas possíveis de um endpoint
         * **@Parameter**: Usada para descrever os parâmetros de entrada dos endpoints.
 
+<br><br>
+
+* 📄 **Exemplo de documentação gerada**:
 
     <img src="images/resultado2.png" alt="ProdutoController" width="900">
 
+Podemos observar que com essa implementação, a documentação da API foi gerada automaticamente, incluindo informações sobre os endpoints, parâmetros e modelos de dados.
 
 ---
 
