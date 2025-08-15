@@ -9,7 +9,7 @@ O objetivo desta aula é mostrar como configurar **Swagger UI** usando **Springd
 
 ## 1️⃣ O que é Swagger e OpenAPI 📖
 
-### 🧭 Swagger
+### 🧩 Swagger
 
 O **Swagger** começou como um **conjunto de ferramentas** para **descrever, gerar e consumir APIs REST**.
 
@@ -63,7 +63,7 @@ O **Springdoc OpenAPI** é uma biblioteca que simplifica a integração do Sprin
 ### 💡 Resumo da relação
 
 * 📜 **OpenAPI** → É o **padrão** (especificação).
-* 🧭 **Swagger** → É o **conjunto de ferramentas** que implementa e facilita trabalhar com o padrão OpenAPI.
+* 🧩 **Swagger** → É o **conjunto de ferramentas** que implementa e facilita trabalhar com o padrão OpenAPI.
 * ⚙️ **Springdoc OpenAPI** → É a **biblioteca** que integra Spring Boot e OpenAPI (e geralmente embute o Swagger UI).
 
 
@@ -91,7 +91,9 @@ O **Springdoc OpenAPI** é uma biblioteca que simplifica a integração do Sprin
     * No dia a dia, muitos devs ainda dizem **“Swagger”** para se referir à documentação, mesmo quando tecnicamente é **OpenAPI**.
 
 
-💡 Ao adicionar essa dependência ao projeto, o **Springdoc OpenAPI** automaticamente configura e disponibiliza a documentação da sua API. Com isso, tanto o **gerador de especificação OpenAPI** quanto a interface interativa do **Swagger UI** estarão prontos para uso, sem necessidade de configurações adicionais.
+💡 **Em resumo:** Usamos “Swagger” nesse guia porque ele é o nome mais reconhecido pelos desenvolvedores, especialmente iniciantes, para **“aquela tela bonita”** onde testamos os endpoints. 
+
+
 
 
 ## 2️⃣ ⚙️ Configurando o Springdoc OpenAPI no projeto
@@ -195,6 +197,7 @@ Para personalizar as informações exibidas na documentação, como título, des
         * 📜 **OpenAPI**: Classe principal que representa a especificação OpenAPI.
         * 📄 **Info**: Classe que contém informações sobre a API, como título, versão e descrição.
 
+    
 
 
 
@@ -244,10 +247,8 @@ Utilize DTOs para separar a camada de persistência da camada de apresentação.
 
     <img src="images/produto-request.png" alt="DTO ProdutoRequest" width="900">
 
-
     * 📚 **Anotações Swagger**: anotações do Swagger para documentar os DTOs e facilitar a geração da documentação da API.
         * **@Parameter**: Usada para descrever os parâmetros de entrada dos endpoints.
-
 
 * **DTO para Resposta (ProdutoResponse)**
 
@@ -284,6 +285,7 @@ Utilize DTOs para separar a camada de persistência da camada de apresentação.
     ```
 
     <img src="images/produto-response.png" alt="DTO ProdutoResponse" width="900">
+
 
 
 
@@ -361,7 +363,6 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
     import br.com.casasbahia.crud_h2.model.Produto;
     import br.com.casasbahia.crud_h2.service.ProdutoService;
     import io.swagger.v3.oas.annotations.Operation;
-    import io.swagger.v3.oas.annotations.Parameter;
     import io.swagger.v3.oas.annotations.responses.ApiResponse;
     import io.swagger.v3.oas.annotations.responses.ApiResponses;
     import lombok.RequiredArgsConstructor;
@@ -416,9 +417,7 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
                 @ApiResponse(responseCode = "404", description = "Produto não encontrado")
         })
         @GetMapping("/{id}")
-        public ResponseEntity<ProdutoResponse> buscarPorId(
-                @Parameter(description = "Código identificador do produto a ser buscado", required = true)
-                @PathVariable Long id) {
+        public ResponseEntity<ProdutoResponse> buscarPorId(@PathVariable Long id) {
             Produto produto = produtoService.buscarPorId(id);
             ProdutoResponse response = produtoMapper.toResponse(produto);
             return ResponseEntity.ok(response);
@@ -431,10 +430,7 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
                 @ApiResponse(responseCode = "404", description = "Produto não encontrado")
         })
         @PutMapping("/{id}")
-        public ResponseEntity<ProdutoResponse> atualizar(
-                @Parameter(description = "Código identificador do produto a ser buscado", required = true)
-                @PathVariable Long id,
-                @RequestBody ProdutoRequest produtoRequest) {
+        public ResponseEntity<ProdutoResponse> atualizar(@PathVariable Long id, @RequestBody ProdutoRequest produtoRequest) {
             Produto produto = produtoMapper.toEntity(produtoRequest); // converte DTO de entrada para entidade
             produto.setId(id); // define o ID recebido na URL
             Produto atualizado = produtoService.atualizar(produto); // atualiza a entidade
@@ -449,16 +445,13 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
                 @ApiResponse(responseCode = "404", description = "Produto não encontrado")
         })
         @DeleteMapping("/{id}")
-        public ResponseEntity<Void> deletar(
-                @Parameter(description = "Código identificador do produto a ser buscado", required = true)
-                @PathVariable Long id) {
+        public ResponseEntity<Void> deletar(@PathVariable Long id) {
             produtoService.deletar(id);
             return ResponseEntity.noContent().build();
         }
 
     }
     ```
-
 
     * 📚 **Anotações Swagger**: anotações do Swagger para documentar o controller e facilitar a geração da documentação da API.
         * **@Schema**: Usada para descrever os modelos de dados.
@@ -475,7 +468,7 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
 
 ## 🚀 Resultado final
 
-Ao seguir passos estudados nesta aula, você terá:
+Após seguir este guia, você terá:
 
 * 📑 API documentada automaticamente
 * 🖥️ Interface web para testes
