@@ -305,7 +305,7 @@ Para converter objetos entre os DTOs e a entidade `Produto`, crie uma classe de 
 * **Criando a classe de mapeamento (ProdutoMapper)**
 
     ```java
-    package br.com.casasbahia.crud_h2.controller;
+    package br.com.casasbahia.crud_h2.controller.mapper;
 
     import br.com.casasbahia.crud_h2.controller.dto.ProdutoRequest;
     import br.com.casasbahia.crud_h2.controller.dto.ProdutoResponse;
